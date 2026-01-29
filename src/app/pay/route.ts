@@ -1,9 +1,10 @@
 import { SquareClient, Environment as SquareEnvironment } from 'square';
 import { createOrder } from '@/lib/printify';
+import crypto from 'crypto';
 
 const { paymentsApi } = new SquareClient({
   accessToken: process.env.SQUARE_ACCESS_TOKEN,
-  environment: SquareEnvironment.Sandbox,  // Change to SquareEnvironment.Production for live payments
+  environment: SquareEnvironment.Sandbox,  // Change to SquareEnvironment.Production for live
 });
 
 export async function POST(req: Request) {
