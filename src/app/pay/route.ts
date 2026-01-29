@@ -1,9 +1,9 @@
-import { Client } from 'square';
+import { SquareClient, Environment as SquareEnvironment } from 'square';
 import { createOrder } from '@/lib/printify';
 
-const { paymentsApi } = new Client({
+const { paymentsApi } = new SquareClient({
   accessToken: process.env.SQUARE_ACCESS_TOKEN,
-  environment: 'sandbox', // Change to 'production'
+  environment: SquareEnvironment.Sandbox,  // Change to SquareEnvironment.Production for live payments
 });
 
 export async function POST(req: Request) {
